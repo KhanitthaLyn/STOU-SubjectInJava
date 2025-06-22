@@ -1,5 +1,4 @@
 package java96414;
-//6596007010 นางสาวขนิษฐา ตันตรงดี กลุ่ม 3
 
 public class Square {
     double side;
