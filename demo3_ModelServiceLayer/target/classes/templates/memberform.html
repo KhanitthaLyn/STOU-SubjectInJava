@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Model and Service Layer Exercise</title>
+</head>
+<body>
+<div>
+    <h1>Member Form</h1>
+</div>
+<div>
+    <form th:action="@{/addmember}" th:object="${formmember}" method="post">
+        Name:
+        <input type="text" th:field="*{name}"/><br>
+        Email:
+        <input type="text" th:field="*{email}"/><br>
+        <input type="submit" value="Send"/>
+        <input type="reset" value="Reset"/>
+    </form>
+</div>
+</body>
+</html>
