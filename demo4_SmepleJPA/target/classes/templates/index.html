@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>JPA Spring Boot Experience</h1>
+    <h2>Inserting data into a table in a database</h2>
+</div>
+<div>
+    <h2>Data Added</h2>
+    Book Id: <span th:text="${book.getId()}"/><br>
+    Book Title <span th:text="${book.getTitle()}"/><br>
+    Book Author <span th:text="${book.getAuthor()}"/><br>
+    Book Price: <span th:text="${book.getPrice()}"/><br>
+</div>
+</body>
+</html>
