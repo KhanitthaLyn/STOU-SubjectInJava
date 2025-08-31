@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>One Piece Episode</title>
+</head>
+<body>
+<div>
+    <h1 th:text="${formepisode.title == null} ? 'Add New Episode' : 'Edit Episode'"></h1>
+</div>
+<div>
+    <form th:action="${formepisode.title == null} ? @{/addseason} : @{/updateepisode}" th:object="${formepisode}" method="post">
+        Title:<br/>
+        <input type="text" th:field="*{title}" th:readonly="${formepisode.title != null}" /><br/>
+
+        Date Release:<br/>
+        <input type="date" th:field="*{date}" required/><br/>
+
+        Season:<br/>
+        <select th:field="*{season}">
+            <option th:each="num : ${#numbers.sequence(1,21)}" th:value="${num}" th:text="${num}"></option>
+        </select><br/>
+
+        Episode No.:<br/>
+        <input type="number" th:field="*{episode}" min="1" required/><br/><br/>
+
+        <input type="submit" value="Save"/>
+        <input type="reset" value="Reset"/>
+    </form>
+</div>
+<div style="margin-top: 10px;">
+    <a href="http://localhost:5656/onepiece/">Back to Episode</a>
+</div>
+</body>
+</html>

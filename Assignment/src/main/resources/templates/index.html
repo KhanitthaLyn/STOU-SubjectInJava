@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>One Piece Episodes</title>
+</head>
+<body>
+<div>
+    <h1>One Piece Episodes</h1>
+    <a th:href="@{/getepisodeform}">Add New Episode</a>
+</div>
+<div>
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="keyword" />
+        <input type="submit" value="Search" />
+    </form>
+</div>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Date Release</th>
+            <th>Season</th>
+            <th>Episode No.</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="episode, iterStat : ${episodes}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${episode.title}"></td>
+            <td th:text="${episode.date}"></td>
+            <td th:text="${episode.season}"></td>
+            <td th:text="${episode.episode}"></td>
+            <td>
+                <a th:href="@{/editepisode/{title}(title=${episode.title})}">Edit</a> |
+                <a th:href="@{/deleteepisode/{title}(title=${episode.title})}" onclick="return confirm('Delete this episode?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
